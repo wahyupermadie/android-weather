@@ -1,14 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.appcompat.widget.LinearLayoutCompat
+        android:orientation="vertical"
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".ui.MainActivity">
 
-    <com.google.android.material.card.MaterialCardView android:layout_width="match_parent"
-                                                       android:layout_height="wrap_content"
-                                                       tools:ignore="MissingConstraints">
-
+    <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_main"
+            android:backgroundTint="@color/material_blue"
+            style="@style/Widget.MaterialComponents.CardView"
+            app:cardCornerRadius="20dp"
+            app:cardUseCompatPadding="true"
+            app:cardElevation="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints">
+        <androidx.appcompat.widget.LinearLayoutCompat
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/TextViewInColoredCard"
+                    android:gravity="center"
+                    android:text="20"
+                    android:textSize="80sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/SubTextViewInColoredCard"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="Rainy"
+                    android:textSize="20sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent">
+                    <RelativeLayout
+                            android:layout_marginStart="10dp"
+                            android:layout_gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                        <androidx.appcompat.widget.AppCompatTextView
+                                style="@style/TextViewInColoredCard"
+                                android:paddingBottom="10dp"
+                                android:id="@+id/tv_humadity"
+                                android:text="Humidity "
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        <androidx.appcompat.widget.AppCompatTextView
+                                style="@style/TextViewInColoredCard"
+                                android:layout_below="@+id/tv_humadity"
+                                android:id="@+id/tv_wind"
+                                android:text="Wind "
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        <androidx.appcompat.widget.AppCompatTextView
+                                style="@style/TextViewInColoredCard"
+                                android:layout_toRightOf="@id/tv_humadity"
+                                android:id="@+id/tv_humadity_result"
+                                android:text="35% "
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" android:layout_marginTop="0dp"
+                                android:layout_alignParentTop="true"/>
+                        <androidx.appcompat.widget.AppCompatTextView
+                                style="@style/TextViewInColoredCard"
+                                android:layout_alignBaseline="@id/tv_wind"
+                                android:layout_toRightOf="@id/tv_wind"
+                                android:id="@+id/tv_wind_result"
+                                android:text="4 km/h "
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                    </RelativeLayout>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+                <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content">
+                    <androidx.appcompat.widget.AppCompatImageView
+                            android:src="@drawable/ic_rainy_weather"
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp"/>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.appcompat.widget.LinearLayoutCompat>
     </com.google.android.material.card.MaterialCardView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:textSize="20sp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="Next 4Days/Hourly"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:id="@+id/rv_five_weather"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
