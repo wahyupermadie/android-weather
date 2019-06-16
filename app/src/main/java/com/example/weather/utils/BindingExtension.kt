@@ -44,5 +44,23 @@ class BindingExtension{
         fun setVisibility4Days(view:View, show:Boolean){
             view.visibility = if (show) View.VISIBLE else View.GONE
         }
+
+        @JvmStatic
+        @BindingAdapter("isVisibilityDays")
+        fun setVisibilityDays(view:View, show:Boolean){
+            view.visibility = if (show) View.VISIBLE else View.GONE
+        }
+
+        @JvmStatic
+        @BindingAdapter("dayWeatherName")
+        fun setDayName(view: AppCompatTextView, text : String){
+            view.text = Extension.convertToDay(text)
+        }
+
+        @JvmStatic
+        @BindingAdapter("dateWeather")
+        fun setDateWeather(view: AppCompatTextView, text : String){
+            view.text = Extension.convertDate(text)
+        }
     }
 }

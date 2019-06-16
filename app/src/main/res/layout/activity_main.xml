@@ -12,6 +12,7 @@
                 type="com.example.weather.model.WeatherItem"/>
 
         <variable name="isLoadingCurrent" type="boolean"/>
+        <variable name="isLoadingDays" type="boolean"/>
         <variable name="isLoading4Days" type="boolean"/>
 
     </data>
@@ -77,6 +78,7 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content">
                                     <androidx.appcompat.widget.AppCompatTextView
+                                            android:textSize="15sp"
                                             style="@style/TextViewInColoredCard"
                                             android:paddingBottom="10dp"
                                             android:id="@+id/tv_humadity"
@@ -84,6 +86,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"/>
                                     <androidx.appcompat.widget.AppCompatTextView
+                                            android:textSize="15sp"
                                             style="@style/TextViewInColoredCard"
                                             android:layout_below="@+id/tv_humadity"
                                             android:id="@+id/tv_wind"
@@ -91,6 +94,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"/>
                                     <androidx.appcompat.widget.AppCompatTextView
+                                            android:textSize="15sp"
                                             android:layout_marginStart="10dp"
                                             style="@style/TextViewInColoredCard"
                                             android:layout_toEndOf="@id/tv_humadity"
@@ -100,6 +104,7 @@
                                             android:layout_height="wrap_content" android:layout_marginTop="0dp"
                                             android:layout_alignParentTop="true"/>
                                     <androidx.appcompat.widget.AppCompatTextView
+                                            android:textSize="15sp"
                                             android:layout_marginStart="10dp"
                                             style="@style/TextViewInColoredCard"
                                             android:layout_alignBaseline="@id/tv_wind"
@@ -130,7 +135,7 @@
                         android:layout_marginBottom="10dp"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
-                        android:text="Next 4Days/Hourly"
+                        android:text="Next 5 Days / 3 Hour"
                         android:textStyle="bold"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
@@ -138,12 +143,12 @@
                 <ProgressBar
                         android:layout_gravity="center"
                         android:id="@+id/progress"
-                        app:isVisibilityCurrent="@{isLoading4Days}"
+                        app:isVisibility4Days="@{isLoading4Days}"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
                 <androidx.recyclerview.widget.RecyclerView
-                        app:isVisibilityCurrent="@{!isLoading4Days}"
+                        app:isVisibility4Days="@{!isLoading4Days}"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
@@ -152,13 +157,6 @@
                         android:layout_height="match_parent"/>
 
             </LinearLayout>
-            <com.google.android.material.bottomappbar.BottomAppBar
-                    android:id="@+id/bar"
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    android:layout_gravity="bottom"
-                    app:backgroundTint="?attr/colorPrimary"
-                    app:navigationIcon="@drawable/icon_menu" />
 
             <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
                     android:id="@+id/next_days_button"
@@ -170,7 +168,48 @@
                     android:textColor="@android:color/white"
                     android:textStyle="bold"
                     app:backgroundTint="@color/material_blue"
-                    app:layout_anchor="@id/bar"
+                    android:layout_gravity="bottom|center"
+                    android:layout_marginBottom="25dp"
                     app:strokeColor="@android:color/white" />
+
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:id="@+id/my_view"
+                    android:background="@drawable/background_layout"
+                    android:layout_alignParentBottom="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:textStyle="bold"
+                        android:layout_marginTop="5dp"
+                        android:textSize="20sp"
+                        android:gravity="center"
+                        android:text="@string/title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                <View android:layout_width="match_parent"
+                      android:layout_height="1dp"
+                      android:background="@color/material_blue"
+                      android:layout_marginBottom="10dp"
+                />
+
+                <ProgressBar
+                        android:layout_gravity="center"
+                        android:id="@+id/progress_list_days"
+                        app:isVisibilityDays="@{isLoadingDays}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                        app:isVisibilityDays="@{!isLoadingDays}"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        android:id="@+id/rv_next_days"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                </androidx.recyclerview.widget.RecyclerView>
+            </LinearLayout>
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

@@ -1,69 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:orientation="vertical"
-              android:layout_width="120dp"
-              android:layout_height="wrap_content">
-    <com.google.android.material.card.MaterialCardView
-            android:backgroundTint="@color/material_blue"
-            style="@style/Widget.MaterialComponents.CardView"
-            android:elevation="10dp"
-            app:cardUseCompatPadding="true"
-            app:cardCornerRadius="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_margin="5dp"
-                android:orientation="vertical"
+<layout>
+    <data>
+        <variable
+                name="fourDaysList"
+                type="com.example.weather.model.fourDaysWeather.ListItem"/>
+        <variable
+                name="weather"
+                type="com.example.weather.model.WeatherItem"/>
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  xmlns:app="http://schemas.android.com/apk/res-auto"
+                  android:orientation="vertical"
+                  android:layout_width="120dp"
+                  android:layout_height="wrap_content">
+        <com.google.android.material.card.MaterialCardView
+                android:backgroundTint="@color/material_blue"
+                style="@style/Widget.MaterialComponents.CardView"
+                android:elevation="10dp"
+                app:cardUseCompatPadding="true"
+                app:cardCornerRadius="20dp"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-            <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_day_four_weather"
-                    android:textSize="15sp"
-                    style="@style/TextViewInColoredCard"
-                    android:gravity="center"
-                    android:text="Sunday"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-            <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/iv_four_weather"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:src="@drawable/ic_rainy_weather"
-                    android:layout_gravity="center"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"/>
-            <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_suhu_four_weather"
-                    android:textSize="15sp"
-                    style="@style/TextViewInColoredCard"
-                    android:gravity="center"
-                    android:text="30"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content">
             <androidx.appcompat.widget.LinearLayoutCompat
-                    android:orientation="horizontal"
+                    android:layout_margin="5dp"
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                 <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_humidity_four_weather"
-                        android:textSize="18sp"
+                        app:dayWeatherName='@{String.format("%s",fourDaysList.dtTxt)}'
+                        android:id="@+id/tv_day_four_weather"
+                        android:textSize="15sp"
                         style="@style/TextViewInColoredCard"
                         android:gravity="center"
-                        android:text="30"
-                        android:layout_weight="1"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/iv_four_weather"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        app:imgSrc='@{String.format("%s",weather.icon)}'
+                        android:layout_gravity="center"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"/>
                 <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_wind_four_weather"
-                        android:textSize="18sp"
+                        android:id="@+id/tv_suhu_four_weather"
+                        android:textSize="15sp"
                         style="@style/TextViewInColoredCard"
                         android:gravity="center"
-                        android:text="30"
-                        android:layout_weight="1"
-                        android:layout_width="0dp"
+                        app:textTemperature='@{String.format("%s",fourDaysList.main.temp)}'
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
+                <androidx.appcompat.widget.LinearLayoutCompat
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                    <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_humidity_four_weather"
+                            android:textSize="15sp"
+                            style="@style/TextViewInColoredCard"
+                            android:gravity="center"
+                            app:textTemperature='@{String.format("%s",fourDaysList.main.tempMin)}'
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"/>
+                    <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_wind_four_weather"
+                            android:textSize="15sp"
+                            style="@style/TextViewInColoredCard"
+                            android:gravity="center"
+                            app:textTemperature='@{String.format("%s",fourDaysList.main.tempMax)}'
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"/>
+                </androidx.appcompat.widget.LinearLayoutCompat>
             </androidx.appcompat.widget.LinearLayoutCompat>
-        </androidx.appcompat.widget.LinearLayoutCompat>
-    </com.google.android.material.card.MaterialCardView>
-</LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+</layout>

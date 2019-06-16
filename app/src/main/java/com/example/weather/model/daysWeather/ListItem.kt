@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 data class ListItem(
 
 	@field:SerializedName("dt")
-	val dt: Int? = null,
+	val dt: Long? = null,
 
 	@field:SerializedName("temp")
 	val temp: Temp? = null,
@@ -13,7 +13,7 @@ data class ListItem(
 	val deg: Int? = null,
 
 	@field:SerializedName("weather")
-	val weather: List<WeatherItem?>? = null,
+	val weather: List<WeatherItem>? = null,
 
 	@field:SerializedName("humidity")
 	val humidity: Int? = null,
@@ -25,7 +25,7 @@ data class ListItem(
 	val clouds: Int? = null,
 
 	@field:SerializedName("speed")
-	val speed: Double? = null,
+	val speed: String? = null,
 
 	@field:SerializedName("rain")
 	val rain: Double? = null

@@ -1,5 +1,6 @@
 package com.example.weather.model.fourDaysWeather
 import com.google.gson.annotations.SerializedName
+
 data class Main(
 
 	@field:SerializedName("temp")

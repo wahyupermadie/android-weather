@@ -1,6 +1,7 @@
 package com.example.weather.model.fourDaysWeather
 import com.google.gson.annotations.SerializedName
-data class ResponseHourlyWeather(
+
+data class ResponseFiveDays(
 
 	@field:SerializedName("city")
 	val city: City? = null,
@@ -14,6 +15,6 @@ data class ResponseHourlyWeather(
 	@field:SerializedName("message")
 	val message: Double? = null,
 
-	@field:SerializedName("listHourly")
-	val listHourly: List<ListItemHourly>? = null
+	@field:SerializedName("list")
+	val list: List<ListItem>? = null
 )
