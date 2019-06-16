@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
-              android:layout_width="match_parent"
+              android:layout_width="120dp"
               android:layout_height="wrap_content">
     <com.google.android.material.card.MaterialCardView
             android:backgroundTint="@color/material_blue"
@@ -19,7 +19,7 @@
                 android:layout_height="match_parent">
             <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_day_four_weather"
-                    android:textSize="20sp"
+                    android:textSize="15sp"
                     style="@style/TextViewInColoredCard"
                     android:gravity="center"
                     android:text="Sunday"
@@ -35,7 +35,7 @@
                     android:layout_height="48dp"/>
             <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_suhu_four_weather"
-                    android:textSize="20sp"
+                    android:textSize="15sp"
                     style="@style/TextViewInColoredCard"
                     android:gravity="center"
                     android:text="30"
@@ -47,7 +47,7 @@
                     android:layout_height="match_parent">
                 <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_humidity_four_weather"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         style="@style/TextViewInColoredCard"
                         android:gravity="center"
                         android:text="30"
@@ -56,7 +56,7 @@
                         android:layout_height="wrap_content"/>
                 <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_wind_four_weather"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         style="@style/TextViewInColoredCard"
                         android:gravity="center"
                         android:text="30"

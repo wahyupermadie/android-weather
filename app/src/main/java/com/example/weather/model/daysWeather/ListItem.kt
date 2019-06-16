@@ -1,4 +1,5 @@
-package com.example.weather.model
+package com.example.weather.model.daysWeather
+import com.example.weather.model.WeatherItem
 import com.google.gson.annotations.SerializedName
 data class ListItem(
 

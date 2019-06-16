@@ -1,4 +1,4 @@
-package com.example.weather.model
+package com.example.weather.model.fourDaysWeather
 import com.google.gson.annotations.SerializedName
 data class Coord(
 

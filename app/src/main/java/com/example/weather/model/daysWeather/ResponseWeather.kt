@@ -1,4 +1,4 @@
-package com.example.weather.model
+package com.example.weather.model.daysWeather
 import com.google.gson.annotations.SerializedName
 data class ResponseWeather(
 
@@ -15,5 +15,5 @@ data class ResponseWeather(
 	val message: Double? = null,
 
 	@field:SerializedName("list")
-	val list: List<ListItem?>? = null
+	val list: List<ListItem>? = null
 )

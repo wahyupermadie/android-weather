@@ -1,4 +1,4 @@
-package com.example.weather.model
+package com.example.weather.model.fourDaysWeather
 import com.google.gson.annotations.SerializedName
 data class City(
 
@@ -7,9 +7,6 @@ data class City(
 
 	@field:SerializedName("coord")
 	val coord: Coord? = null,
-
-	@field:SerializedName("timezone")
-	val timezone: Int? = null,
 
 	@field:SerializedName("name")
 	val name: String? = null,
