@@ -2,7 +2,6 @@ package com.example.weather.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -10,7 +9,6 @@ import com.example.weather.databinding.ActivityMainBinding
 import com.example.weather.utils.ViewExtension
 import com.example.weather.viewModel.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
-import org.jetbrains.anko.toast
 import org.koin.android.viewmodel.ext.android.viewModel
 import android.view.View
 import android.view.animation.AnimationUtils.loadAnimation
@@ -19,8 +17,8 @@ import com.example.weather.adapter.MainAdapter
 import com.example.weather.adapter.MainDaysAdapter
 import org.jetbrains.anko.contentView
 import org.jetbrains.anko.design.snackbar
-import android.graphics.drawable.ClipDrawable.VERTICAL
 import com.example.weather.R
+import com.example.weather.utils.AppSchedulerProvider
 
 
 class MainActivity : AppCompatActivity(), ViewExtension{
@@ -37,14 +35,16 @@ class MainActivity : AppCompatActivity(), ViewExtension{
 
     override fun onResume() {
         super.onResume()
-        if (viewModel.isConnected(this)){
+        if (viewModel.isConnected(this, true)){
             getCurrent()
             getFiveDays()
         }
     }
     private fun init() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        viewModel.setListener(this)
+        val scheduler = AppSchedulerProvider()
+
+        viewModel.setListener(this, this, scheduler, true)
         binding?.isLoadingCurrent = true
         binding?.isLoading4Days = true
         binding?.isLoadingDays = true

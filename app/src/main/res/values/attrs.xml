@@ -1,0 +1,7 @@
+<resources>
+    <declare-styleable name="custom_component_attributes">
+        <attr name="textTemperature" format="string" />
+        <attr name="dayWeatherName" format="string" />
+        <attr name="dateWeather" format="string" />
+    </declare-styleable>
+</resources>
